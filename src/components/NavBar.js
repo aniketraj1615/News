@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            News
           </a>
           <button
             className="navbar-toggler"
@@ -93,6 +93,24 @@ function NavBar() {
                 </a>
               </li>
             </ul>
+            {/* <form className="d-flex" role="search">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Search"
+                id="category"
+                aria-label="Search"
+              />
+              <button
+                className="btn btn-outline-success"
+                onClick={() => {
+                  this.state.props.setCategory(category.value);
+                }}
+                type="submit"
+              >
+                Search
+              </button>
+            </form> */}
           </div>
         </div>
       </nav>

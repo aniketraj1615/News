@@ -24,9 +24,10 @@ export class News extends Component {
       page: 1,
     };
   }
+
   async componentDidMount() {
     console.log(this.props.pageSize);
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=e370df607a98405595147b00e0ff51a0&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=${this.props.apiKey}&page=1&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
 
@@ -43,9 +44,7 @@ export class News extends Component {
     console.log("prv btn");
     let url = `https://newsapi.org/v2/top-headlines?country=${
       this.props.country
-    }&category=${
-      this.props.category
-    }&apikey=e370df607a98405595147b00e0ff51a0&page=${
+    }&category=${this.props.category}&apikey=${this.props.apiKey}&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -66,9 +65,7 @@ export class News extends Component {
     } else {
       let url = `https://newsapi.org/v2/top-headlines?country=${
         this.props.country
-      }&category=${
-        this.props.category
-      }&apikey=e370df607a98405595147b00e0ff51a0&page=${
+      }&category=${this.props.category}&apikey=${this.props.apiKey}&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
@@ -83,10 +80,11 @@ export class News extends Component {
   };
   render() {
     console.log("render");
+    console.log(this.state.apiKey);
     return (
       <>
         <div className="container my-3">
-          <h1 className="text-center">Headlines</h1>
+          <h1 className="text-center my-5">Headlines</h1>
           {this.state.loading && <Spinner />}
           <div className="row">
             {!this.state.loading &&
@@ -94,12 +92,14 @@ export class News extends Component {
                 return (
                   <div className="col-md-4" key={element.url}>
                     <NewsItem
-                      title={element.title ? element.title.slice(0, 25) : ""}
-                      description={
-                        element.description
-                          ? element.description.slice(0, 70)
-                          : ""
-                      }
+                      // title={element.title ? element.title.slice(0, 25) : ""}   //for fixing the heading size upto 25 words
+                      title={element.title}
+                      // description={
+                      //   element.description
+                      //     ? element.description.slice(0, 70)
+                      //     : ""
+                      // }  //for fixing the description upto 70 words only
+                      description={element.description}
                       imageUrl={
                         element.urlToImage
                           ? element.urlToImage
