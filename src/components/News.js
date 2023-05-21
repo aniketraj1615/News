@@ -10,7 +10,7 @@ export class News extends Component {
     pageSize: 6,
     category: "general",
   };
-  static PropTypes = {
+  static propTypes = {
     country: PropTypes.string,
     pageSize: PropTypes.number,
     category: PropTypes.string,
@@ -106,6 +106,9 @@ export class News extends Component {
                           : "https://images.hindustantimes.com/tech/img/2023/04/18/1600x900/asteroid_1681792994471_1681792994687.jpg"
                       }
                       newsUrl={element.url}
+                      author={element.author}
+                      date={element.publishedAt}
+                      source={element.source.name}
                     />
                   </div>
                 );
