@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./NewsItem.css"
 export default class NewsItem extends Component {
   render() {
     let { title, description, imageUrl, newsUrl, author, date, source } =
@@ -8,7 +8,7 @@ export default class NewsItem extends Component {
       <>
         <div className="card my-3 mx-3" style={{ width: "18rem" }}>
           <img src={imageUrl} className="card-img-top" alt="..." />
-          <div className="card-body">
+          <div className="card-body" id="id_for_cardbody">
             <span
               className="position-absolute top-0  translate-middle badge rounded-pill bg-danger"
               style={{ left: "90%", zIndex: "1" }}
