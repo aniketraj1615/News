@@ -10,20 +10,7 @@ function App() {
   
 
   return (
-    // <>
-    //   <NavBar />
-    //   <routes>
-
-    //   </routes>
-    //   <News
-    //     pageSize={12}
-    //     country="in"
-    //     apiKey="e370df607a98405595147b00e0ff51a0"
-    //     category="sports"
-    //   />
-      
-    // </>
-   
+  
     <BrowserRouter>
         <NavBar />
         
@@ -72,3 +59,4 @@ function App() {
 }
 
 export default App;
+
